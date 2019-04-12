@@ -1,0 +1,270 @@
+/* Global */
+
+:root {
+    --text-color: #333;
+    --secondary-color: #ee6c4d;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: absolute;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.container {
+    position: relative;
+    top: -20px;
+    left: 0;
+    margin: 0 auto 30px auto;
+    width: 80%;
+}
+
+a {
+    text-decoration: none;
+    transition: all 200ms;
+    color: var(--text-color);
+}
+
+
+li {
+    list-style-type: none;
+}
+
+.button {
+    text-align: center;
+    width: 120px;
+    transition: all 0.7s;
+    background-color: transparent;
+    border: 2px var(--secondary-color) solid;
+    border-radius: 25px;
+    padding: 1rem 1rem
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    border: none; 
+    color: #fff;
+}
+
+/* Header */
+header {
+    background: #E0EAFC;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 80%;
+    height: 70px;
+    border-radius: 0 0 35px 35px;
+}
+
+.navbar {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-62.5%, -50%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    width: inherit;
+    margin: 0 auto;
+}
+
+.navbar ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+/* About */
+#about {
+    width: 100%;
+    height: 105vh;
+}
+
+#about > div {
+    top: 50%;
+    /* left: 50%; */
+    transform: translateY(360%);
+    text-align: center;
+}
+
+#about div h1, #about div h2 {
+    display: inline-block;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid var(--secondary-color); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; */
+}
+
+#about div h1 {
+    margin-bottom: 10px; 
+    animation: 
+        typing-h1 1.5s steps(20, end),
+        blink-caret .75s step-end 2 forwards;
+}
+
+#about div h2 {
+    margin-top: 10px;
+    opacity: 0;
+    animation: 
+        typing-h2 2.5s 1.5s steps(35, end) forwards,
+        blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing-h1 {
+    from { width: 0 }
+    to { width: 20% }
+  }
+
+@keyframes typing-h2 {
+    from { width: 0; opacity: 1;}
+    to { width: 35%; opacity: 1; }
+  }
+  
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--secondary-color); }
+}
+
+#about .button {
+    position: relative;
+    top: 75%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+/* Work */
+#work {
+    width: 100%;
+    top: 60px;
+}
+
+.showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 40px;
+    justify-items: center;
+    width: 100%;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 35px;
+    width: 80%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.left {
+    grid-template-areas: 
+        "img img info info info"
+        "img img info info info"
+        "img img buttons buttons buttons"
+}
+
+.right {
+    grid-template-areas: 
+        "info info info img img"
+        "info info info img img"
+        "buttons buttons buttons img img"
+}
+
+.img-container {
+    width: 100%;
+    height: 100%;
+    grid-area: img;
+}
+
+.img-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.left .img-container img {
+    border-radius: 35px 0 0 35px;
+}
+
+.right .img-container img {
+    border-radius: 0 35px 35px ;
+}
+
+.project-info {
+    grid-area: info;
+    text-align: center;
+}
+
+.buttons {
+    grid-area: buttons;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-auto-rows: 1fr;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.buttons .button {
+    padding: 0.5rem;
+}
+
+.buttons .button:first-child {
+    justify-self: start;
+    margin-left: 90px;
+    grid-column: 1 / 2;
+}
+
+.buttons .button:nth-child(2) {
+    justify-self: end;
+    margin-right: 90px;
+    grid-column: 2 / 3;
+}
+
+
+/* Contact */
