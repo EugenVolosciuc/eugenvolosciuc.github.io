@@ -78,7 +78,7 @@ li {
     display: block;
     content: " ";
     height: 130px;  /* Give height of your fixed element */
-    margin-top: -70px; /* Give negative margin of your fixed element */
+    margin-top: 0px; /* Give negative margin of your fixed element */
     visibility: hidden;
 }
 
@@ -198,6 +198,7 @@ header {
 #work {
     width: 100%;
     top: 60px;
+    z-index: 1;
 }
 
 #work > h1 {
@@ -288,7 +289,6 @@ header {
     position: relative;
     width: 100%;
     height: 100vh;
-    z-index: -1;
 }
 
 #contact div {
