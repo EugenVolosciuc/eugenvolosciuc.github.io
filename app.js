@@ -1,3 +1,4 @@
+// Smooth Scroll
 const anchors = document.getElementsByClassName("smooth-scroll");
 
 [].forEach.call(anchors, anchor => {
